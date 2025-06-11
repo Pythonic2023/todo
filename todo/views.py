@@ -11,16 +11,23 @@ def index(request):
 
 def signup(request):
 	if request.method == "POST":
+		user_name = request.POST.get('Username')
 		form = UserCreationForm(request.POST)
 		if form.is_valid():
+			username = form.cleaned_data['username']
 			user = form.save()
-			messages.success(request, f"Welcome, {user.username}! Your account has been successfully created.")
-			return redirect(reverse("todo:index"))
+			return signupsuccess(request, username)
 		else:
 			messages.error(request, "Registration failed. Please correct the errors below")
+			print(form.errors)
 	else:
 		form = UserCreationForm()
-		return render(request, "todo/signup.html", {"form": form})
+	return render(request, "todo/signup.html", {"form": form})
+
+def signupsuccess(request, user):
+	username = user
+	context = {'username': username}
+	return render(request, "todo/signupsuccess.html", context)
 
 def signin(request):
 	return render(request, "todo/signin.html")

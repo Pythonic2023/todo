@@ -5,5 +5,6 @@ app_name = "todo"
 urlpatterns = [
 	path("", views.index, name="index"),
 	path("signup/", views.signup, name="signup"),
+	path("signup/signupsuccess/", views.signupsuccess, name="signupsuccess"),
 	path("signin/", views.signin, name="signin"),
 ]
