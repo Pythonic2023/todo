@@ -6,6 +6,8 @@ urlpatterns = [
 	path("", views.index, name="index"),
 	path("signup/", views.signup, name="signup"),
 	path("signup/signupsuccess/", views.signupsuccess, name="signupsuccess"),
-	path("signup/signuperror/", views.signuperror, name="signuperror"),
+	path("error/", views.error, name="error"),
 	path("signin/", views.signin, name="signin"),
+	path("todolist/<str:username>", views.todo_list, name="todolist"),
+	path("additem/", views.create_item, name="additem")
 ]

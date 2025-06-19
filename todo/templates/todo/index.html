@@ -11,7 +11,11 @@
 				<h1>Welcome to TODO</h1> 
 				<li><a href="{% url 'todo:signup' %}">Sign up</a></li>
 				<p>OR</p>								
-				<a href="{% url 'todo:signin' %}">Sign in </a>	
+				<a href="{% url 'todo:signin' %}">Sign in </a>
+				<br>
+				<a href="{% url 'todo:todolist' username=request.user.username%}">Create todolist</a>
+				<br>
+				<a href="{% url 'todo:additem' %}">Create item</a>
 			</div>
 		</body>
 </html>
